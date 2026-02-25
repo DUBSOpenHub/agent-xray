@@ -1,96 +1,89 @@
-# 🛡️ Agent Armor
+# 🔬 Agent X-Ray
 
-> *Your agent is about to enter the dungeon. Are they ready?*
+> *Your agent is about to drop onto a hostile planet. What's their suit status?*
 
-Agent Armor scans your AI agent's prompt and tells you exactly which power-ups they're missing — before they get wrecked.
-
-🌍 **Works in any terminal.** Scans any `.md` agent prompt — Copilot, ChatGPT, Claude, LangChain, CrewAI, or your own custom agents. Zero dependencies. Just Node.js.
+Agent X-Ray scans your AI agent's prompt and reveals exactly which suit upgrades they're missing — before they get wrecked by Space Pirates.
 
 🏭 **Built with [Dark Factory](https://github.com/DUBSOpenHub/dark-factory)** — 6 AI agents, sealed-envelope testing, 0% gap score. [Read the build log →](DARK-FACTORY.md)
 
 ```
-node agent-armor.js my-agent.md
+node agent-xray.js my-agent.md
 ```
 
 ```
-🛡️  agent-armor: my-agent.md  (1848 words)
+🔬  agent-xray: my-agent.md  (1848 words)
 
-  🗡️ Role Clarity               [ 75] ███████████████████████░░░░░░░  💚💚💚💚🖤
-  🛡️ Constraint Density         [ 70] █████████████████████░░░░░░░░░  💚💚💚💚🖤
-  🧚 Hallucination Guardrails   [ 26] ████████░░░░░░░░░░░░░░░░░░░░░░  🔴🖤🖤🖤🖤
-  📜 Output Specificity         [ 48] ██████████████░░░░░░░░░░░░░░░░  🟡🟡🖤🖤🖤
-  🎯 Testability                [ 31] █████████░░░░░░░░░░░░░░░░░░░░░  🔴🔴🖤🖤🖤
-  💙 Escape Hatches             [ 12] ████░░░░░░░░░░░░░░░░░░░░░░░░░░  🔴🖤🖤🖤🖤
+  💥 Role Clarity               [ 75] ███████████████████████░░░░░░░  🟢🟢🟢🟢⬛
+  🛡️ Constraint Density         [ 70] █████████████████████░░░░░░░░░  🟢🟢🟢🟢⬛
+  📡 Hallucination Guardrails   [ 26] ████████░░░░░░░░░░░░░░░░░░░░░░  🔴⬛⬛⬛⬛
+  🗺️ Output Specificity         [ 48] ██████████████░░░░░░░░░░░░░░░░  🟡🟡⬛⬛⬛
+  🎯 Testability                [ 31] █████████░░░░░░░░░░░░░░░░░░░░░  🔴🔴⬛⬛⬛
+  ⚡ Escape Hatches             [ 12] ████░░░░░░░░░░░░░░░░░░░░░░░░░░  🔴⬛⬛⬛⬛
   ────────────────────────────────────────────────────────────────────────
-  ⚔️  Composite                  [ 44] █████████████░░░░░░░░░░░░░░░░░  🟡🟡🖤🖤🖤
+  🔬  Composite                  [ 44] █████████████░░░░░░░░░░░░░░░░░  🟡🟡⬛⬛⬛
 
-  ⚠️  Under-leveled. Visit the blacksmith.
+  ⚠️  Suit incomplete. Visit the Chozo Statue.
 ```
 
 ## Why This Tool?
 
-Ever send your agent on a quest and they come back with completely made-up answers? Or freeze when they hit something unexpected? That's an agent with no armor.
+Ever send your agent on a mission and they come back with completely fabricated data? Or freeze when they hit something unexpected? That's an agent with no suit upgrades.
 
-Agent Armor checks whether your agent is actually equipped for battle. Did you tell them not to make things up? That's their 🧚 Navi. Did you tell them what to do when they're stuck? That's their 💙 Magic Potion. Did you define their output format? That's their 📜 Dungeon Map.
+Agent X-Ray activates the **Scan Visor** on your agent's prompt. Did you tell them not to make things up? That's their 📡 Scan Visor — separating real data from hallucinations. Did you tell them what to do when they're stuck? That's their ⚡ Energy Tank — keeping them alive when things go sideways. Did you define their output format? That's their 🗺️ Area Map — so they don't wander through uncharted territory.
 
-Most agents ship with half their inventory empty. They work — until they don't. Agent Armor shows you the empty slots so you can fill them before your agent face-plants in production.
+Most agents ship with half their suit systems offline. They work — until they don't. Agent X-Ray reveals the empty upgrade slots so you can power up before your agent gets space-wrecked in production.
 
-Scan. Upgrade. Rescan. Full hearts. 💚💚💚
+Scan. Upgrade. Rescan. Full energy. 🟢🟢🟢
 
 ## 🚀 Quick Start
 
 ```bash
-git clone https://github.com/DUBSOpenHub/agent-armor.git
-cd agent-armor
-
-# Scan any agent prompt
-node agent-armor.js path/to/my-agent.md
-
-# Scan an entire folder of agents
-node agent-armor.js --fleet ~/.copilot/agents/
+git clone https://github.com/DUBSOpenHub/agent-xray.git
+cd agent-xray
+node agent-xray.js --fleet ~/.copilot/agents/
 ```
 
-That's it. Point it at any `.md` file with agent instructions. No dependencies. No setup. Just answers.
+That's it. One command scans your entire agent fleet. No dependencies. No setup. Just answers.
 
 ## 🗺️ The 6 Dimensions
 
-Think of your AI agent heading into a dungeon.
+Think of your AI agent dropping onto a hostile planet.
 
-**Without Agent Armor**, your agent walks in with no shield, no hearts, no fairy in a bottle, and no map. They might survive — but one wrong move and they're done.
+**Without Agent X-Ray**, your agent lands with no beam weapon, no suit shielding, no scan visor, and no map data. They might survive — but one ambush from a Space Pirate and they're done.
 
-**Agent Armor scans your agent and shows you what's missing — so you know exactly which power-ups to grab:**
+**Agent X-Ray activates the Scan Visor on your prompt and shows you what's missing — so you know exactly which upgrades to grab:**
 
-| Dimension | Zelda Equivalent | What Happens Without It |
-|-----------|-----------------|------------------------|
-| 🗡️ **Role Clarity** | The Master Sword | Your agent doesn't know what they are — they're swinging a stick |
-| 🛡️ **Constraint Density** | Hylian Shield | No rules = no defense. Every bad input gets through |
-| 🧚 **Hallucination Guardrails** | Navi saying "Hey! Listen!" | Nobody stops your agent from making up fake treasure maps |
-| 📜 **Output Specificity** | Dungeon Map | Without it, your agent wanders — output is random, unstructured |
-| 🎯 **Testability** | Target Practice | Can you even tell if your agent hit the bullseye? |
-| 💙 **Escape Hatches** | Magic Potion | When your agent dies mid-task, there's nothing to revive them |
+| Dimension | Metroid Equivalent | What Happens Without It |
+|-----------|-------------------|------------------------|
+| 💥 **Role Clarity** | Power Beam | Your agent has no primary weapon — they're punching Space Pirates bare-handed |
+| 🛡️ **Constraint Density** | Varia Suit | No shielding = no defense. Every bad input burns through |
+| 📡 **Hallucination Guardrails** | Scan Visor | Nobody stops your agent from fabricating fake scan data |
+| 🗺️ **Output Specificity** | Area Map | Without it, your agent wanders — output is random, uncharted |
+| 🎯 **Testability** | Lock-On Targeting | Can you even tell if your agent hit the target? |
+| ⚡ **Escape Hatches** | Energy Tank | When your agent takes a critical hit mid-task, there's nothing to keep them alive |
 
-**Run the scan. Grab the missing power-ups. Send your agent back in fully armored.**
+**Run the scan. Grab the missing upgrades. Send your agent back in with a fully powered suit.**
 
 Each dimension: **0–100**. Composite: **arithmetic mean**.
 
-## 🎮 More Quests
+## 🎮 More Missions
 
-### ⚔️ Scan one agent
+### 🔬 Scan one agent
 
 ```bash
-node agent-armor.js my-agent.md
+node agent-xray.js my-agent.md
 ```
 
 ### 🏅 Forge a Badge
 
 ```bash
-node agent-armor.js my-agent.md --badge badge.svg
+node agent-xray.js my-agent.md --badge badge.svg
 ```
 
-### 📜 JSON output for CI
+### 📡 JSON output for CI
 
 ```bash
-node agent-armor.js my-agent.md --json
+node agent-xray.js my-agent.md --json
 ```
 
 ```json
@@ -108,77 +101,71 @@ node agent-armor.js my-agent.md --json
 }
 ```
 
-### 🔮 Mirror of Truth — self-test your Copilot agents
+### 🔮 X-Ray Scope — self-test your Copilot agents
 
 ```bash
-node agent-armor.js --self-test
+node agent-xray.js --self-test
 ```
 
-Scans `~/.copilot/agents/`. Exits 0 if all agents score ≥ 50, exits 1 if any are below. Put it in CI — gate your agents like a dungeon boss.
+Scans `~/.copilot/agents/`. Exits 0 if all agents score ≥ 50, exits 1 if any are below. Put it in CI — gate your agents like Mother Brain.
 
-## 💚 Health Bar
+## ⚡ Energy Meter
 
-| Score | Hearts | Status |
+| Score | Energy | Status |
 |-------|--------|--------|
-| 0–39 | 🔴🔴🔴 | Critical HP — one hit and they're done |
-| 40–69 | 🟡🟡🟡 | Half hearts — survivable but risky |
-| 70–100 | 💚💚💚 | Full hearts — ready for the boss fight |
+| 0–39 | 🔴🔴🔴 | Critical energy — one hit from a Space Pirate and they're done |
+| 40–69 | 🟡🟡🟡 | Partial suit — survivable but vulnerable |
+| 70–100 | 🟢🟢🟢 | Full power — ready for Ridley |
 
-## 🔨 Visit the Blacksmith
+## 🏛️ Visit the Chozo Statue
 
-Your agent scored low? Here's how to forge upgrades.
+Your agent scored low? Here's how to acquire upgrades.
 
-### Low on Hallucination Guardrails? 🧚
+### Low on Hallucination Guardrails? 📡
 
 Add these lines to your agent prompt:
 - *"Do not fabricate data or error messages"*
 - *"If you are unsure, say so explicitly"*
 - *"Only cite verified sources"*
 
-### Low on Escape Hatches? 💙
+### Low on Escape Hatches? ⚡
 
 Add these lines:
 - *"If you cannot complete the task, escalate to the user"*
 - *"When uncertain, default to read-only mode"*
 - *"Fall back to reporting the error without attempting a fix"*
 
-### Low on Output Specificity? 📜
+### Low on Output Specificity? 🗺️
 
 Add these lines:
 - *"Format all output as markdown with headings"*
 - *"Limit response to a maximum of 100 lines"*
 - *"Start your response with a one-line summary"*
 
-Rescan. Watch the hearts fill up. 💚💚💚
+Rescan. Watch the energy tanks fill up. 🟢🟢🟢
 
 ### 📂 Where are my agent files?
 
 | Platform | Path |
 |----------|------|
-| GitHub Copilot CLI | `~/.copilot/agents/*.agent.md` |
+| Copilot CLI agents | `~/.copilot/agents/*.agent.md` |
 | Repo-level instructions | `.github/copilot-instructions.md` |
 | Custom agents (repo) | `.github/agents/*.md` |
-| ChatGPT custom GPTs | Export your system prompt to a `.md` file |
-| Claude Projects | Copy your project instructions to a `.md` file |
-| LangChain / CrewAI | Your agent definition `.md` or `.yaml` files |
-| Any AI agent | Any `.md` file with agent instructions works |
 
 Open the file, paste the lines above, save, rescan. That's it.
 
 ## ⚙️ How It Works
 
-No magic. No AI. Just pattern matching. Think of it as a treasure detector — it beeps when it finds the right keywords in your prompt.
+No magic. No AI. Just pattern matching. Think of it as the Scan Visor — it locks on to keywords in your prompt and tells you what's really there.
 
 It searches for patterns like `"you are"`, `"never"`, `"do not fabricate"`, `"for example"`, `"if you cannot"` and scores based on their presence and density.
 
-**Deterministic**: same file → same score, every time. No RNG in this dungeon.
+**Deterministic**: same file → same score, every time. No RNG on this space station.
 
 ## 📋 Requirements
 
 - Node.js 18+
-- macOS, Linux, or Windows
-- Works in any terminal — no GitHub Copilot CLI required
-- That's it. No side quests.
+- That's it. No side missions.
 
 ## License
 

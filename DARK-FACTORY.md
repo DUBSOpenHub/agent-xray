@@ -1,6 +1,6 @@
 # 🏭 Dark Factory Build Log
 
-**Agent Armor** was built entirely by the [Dark Factory](https://github.com/DUBSOpenHub/dark-factory) — an autonomous AI build system that orchestrates 6 specialist agents through a checkpoint-gated pipeline with sealed-envelope testing.
+**Agent X-Ray** was built entirely by the [Dark Factory](https://github.com/DUBSOpenHub/dark-factory) — an autonomous AI build system that orchestrates 6 specialist agents through a checkpoint-gated pipeline with sealed-envelope testing.
 
 No human wrote the code. A human described the goal. The factory built it.
 
@@ -69,7 +69,7 @@ This catches the blind spots that happen when the same person (or AI) writes bot
 | Phase 1 — Spec | 45s | PRD.md |
 | Phase 2a — Sealed QA | 6m 34s | sealed-tests.mjs, fixtures/ |
 | Phase 2b — Architecture | 1m 44s | ARCH.md |
-| Phase 3 — Build | 3m 00s | agent-armor.js, tests.mjs |
+| Phase 3 — Build | 3m 00s | agent-xray.js, tests.mjs |
 | Phase 4 — Validation | 2m 00s | GAP-REPORT.md |
 | Phase 5 — Hardening | 4m 00s | Patched source |
 | Phase 6 — Delivery | 1m 00s | ✅ Shipped |

@@ -9,12 +9,12 @@ const fs   = require('fs');
 const path = require('path');
 
 const DIMENSIONS = [
-  { key: 'roleClarity',         label: 'Role Clarity',             icon: '🗡️'  },
+  { key: 'roleClarity',         label: 'Role Clarity',             icon: '💥' },
   { key: 'constraintDensity',   label: 'Constraint Density',       icon: '🛡️'  },
-  { key: 'hallucinationGuards', label: 'Hallucination Guardrails', icon: '🧚' },
-  { key: 'outputSpecificity',   label: 'Output Specificity',       icon: '📜' },
+  { key: 'hallucinationGuards', label: 'Hallucination Guardrails', icon: '📡' },
+  { key: 'outputSpecificity',   label: 'Output Specificity',       icon: '🗺️'  },
   { key: 'testability',         label: 'Testability',              icon: '🎯' },
-  { key: 'escapeHatches',       label: 'Escape Hatches',           icon: '💙' },
+  { key: 'escapeHatches',       label: 'Escape Hatches',           icon: '⚡' },
 ];
 
 const COLOR_THRESHOLDS = { red: 39, yellow: 69 };
@@ -205,24 +205,24 @@ function renderBar(score, width) {
   return colorize(score) + bar + ANSI_RESET;
 }
 
-function renderHearts(score) {
+function renderEnergy(score) {
   const total = 5;
   if (score >= 70) {
     const filled = Math.min(total, Math.round(score / 100 * total));
-    return '\uD83D\uDC9A'.repeat(filled) + '\uD83D\uDDA4'.repeat(total - filled);
+    return '\uD83D\uDFE2'.repeat(filled) + '\u2B1B'.repeat(total - filled);
   } else if (score >= 40) {
     const filled = Math.round(score / 100 * total);
-    return '\uD83D\uDFE1'.repeat(filled) + '\uD83D\uDDA4'.repeat(total - filled);
+    return '\uD83D\uDFE1'.repeat(filled) + '\u2B1B'.repeat(total - filled);
   } else {
     const filled = Math.max(1, Math.round(score / 100 * total));
-    return '\uD83D\uDD34'.repeat(filled) + '\uD83D\uDDA4'.repeat(total - filled);
+    return '\uD83D\uDD34'.repeat(filled) + '\u2B1B'.repeat(total - filled);
   }
 }
 
 function renderVerdict(score) {
-  if (score >= 70) return '  \uD83D\uDC9A Ready for the boss fight.\n';
-  if (score >= 50) return '  \u26A0\uFE0F  Under-leveled. Visit the blacksmith.\n';
-  return '  \uD83D\uDCA0 Critical HP. Needs serious power-ups before deploying.\n';
+  if (score >= 70) return '  \uD83D\uDFE2 Suit fully powered. Ready for Ridley.\n';
+  if (score >= 50) return '  \u26A0\uFE0F  Suit incomplete. Visit the Chozo Statue.\n';
+  return '  \uD83D\uDEA8 Critical energy. Major upgrades needed before deployment.\n';
 }
 
 function renderBarChart(result) {
@@ -231,21 +231,21 @@ function renderBarChart(result) {
   const labelWidth = 26;
   const BAR_WIDTH  = 30;
 
-  let out = '\n' + ANSI_BOLD + '\uD83D\uDEE1\uFE0F  agent-armor: ' + name + ANSI_RESET +
+  let out = '\n' + ANSI_BOLD + '\uD83D\uDD2C  agent-xray: ' + name + ANSI_RESET +
             '  (' + wordCount + ' words)\n\n';
 
   for (const { key, label, icon } of DIMENSIONS) {
     const score     = dimensions[key];
     const padLabel  = label.padEnd(labelWidth);
     const scoreStr  = String(score).padStart(3);
-    out += '  ' + icon + ' ' + padLabel + ' [' + scoreStr + '] ' + renderBar(score, BAR_WIDTH) + '  ' + renderHearts(score) + '\n';
+    out += '  ' + icon + ' ' + padLabel + ' [' + scoreStr + '] ' + renderBar(score, BAR_WIDTH) + '  ' + renderEnergy(score) + '\n';
   }
 
   const divider = '\u2500'.repeat(labelWidth + BAR_WIDTH + 16);
   out += '  ' + divider + '\n';
-  out += '  \u2694\uFE0F  ' + 'Composite'.padEnd(labelWidth) +
+  out += '  \uD83D\uDD2C  ' + 'Composite'.padEnd(labelWidth) +
          ' [' + String(comp).padStart(3) + '] ' +
-         renderBar(comp, BAR_WIDTH) + '  ' + renderHearts(comp) + '\n\n';
+         renderBar(comp, BAR_WIDTH) + '  ' + renderEnergy(comp) + '\n\n';
 
   out += renderVerdict(comp);
   out += '\n';
@@ -326,7 +326,7 @@ function renderTable(results) {
 }
 
 function renderBadge(score, label) {
-  if (label === undefined) label = 'agent-armor';
+  if (label === undefined) label = 'agent-xray';
   const rightText = String(score);
   const CHAR_W    = 6.5;
   const PADDING   = 10;
@@ -510,7 +510,7 @@ function dispatch(opts) {
         null, 2
       ) + '\n');
     } else {
-      process.stdout.write('agent-armor Fleet Report: ' + dir + '\n');
+      process.stdout.write('agent-xray Fleet Report: ' + dir + '\n');
       process.stdout.write(renderTable(sorted));
     }
 
@@ -537,16 +537,16 @@ function dispatch(opts) {
 
 function printHelp() {
   process.stdout.write(
-    'agent-armor — Agent Prompt Quality Analyzer\n' +
+    'agent-xray — Scan your AI agent\'s prompt. See what\'s missing.\n' +
     '\n' +
     'Usage:\n' +
-    '  node agent-armor.js <file.md>                     Score a single prompt file\n' +
-    '  node agent-armor.js --fleet <dir>                 Score all .md files in directory\n' +
-    '  node agent-armor.js --self-test                   Run fleet mode on dark-factory agents dir\n' +
-    '  node agent-armor.js --badge <outfile>             Write SVG badge (single file mode)\n' +
-    '  node agent-armor.js --fleet <dir> --badge <dir>   Write one SVG badge per file into dir\n' +
-    '  node agent-armor.js --json                        Emit scores as JSON to stdout\n' +
-    '  node agent-armor.js --help                        Show this help\n' +
+    '  node agent-xray.js <file.md>                     Score a single prompt file\n' +
+    '  node agent-xray.js --fleet <dir>                 Score all .md files in directory\n' +
+    '  node agent-xray.js --self-test                   Run fleet mode on dark-factory agents dir\n' +
+    '  node agent-xray.js --badge <outfile>             Write SVG badge (single file mode)\n' +
+    '  node agent-xray.js --fleet <dir> --badge <dir>   Write one SVG badge per file into dir\n' +
+    '  node agent-xray.js --json                        Emit scores as JSON to stdout\n' +
+    '  node agent-xray.js --help                        Show this help\n' +
     '\n' +
     'Scoring Dimensions:\n' +
     '  Role Clarity             — Explicit persona, scope, and responsibility statements\n' +
@@ -595,6 +595,7 @@ module.exports = {
   writeFile,
   colorize,
   renderBar,
+  renderEnergy,
   renderBarChart,
   renderTable,
   renderBadge,

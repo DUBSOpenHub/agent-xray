@@ -16,7 +16,7 @@ So I said this to my terminal:
 dark factory
 ```
 
-And described what I wanted: a CLI that scans AI agent prompts and scores them across six dimensions. Think of it as an inventory check before your agent enters the dungeon — do they have a sword, a shield, a map, and a potion? Or are they walking in empty-handed?
+And described what I wanted: a CLI that scans AI agent prompts and scores them across six dimensions. Think of it as the Scan Visor from Metroid — lock on to your agent's prompt and see if they've got a powered-up suit or if they're walking into Ridley's lair in their Zero Suit.
 
 19 minutes later, I had a working tool. 605 lines of code. 171 tests passing. Zero lines written by me.
 
@@ -26,20 +26,20 @@ But that's not the interesting part.
 
 ## The Interesting Part
 
-The tool I built — [Agent Armor](https://github.com/DUBSOpenHub/agent-armor) — scans AI agent prompts and tells you what's missing. It checks six things:
+The tool I built — [Agent X-Ray](https://github.com/DUBSOpenHub/agent-xray) — scans AI agent prompts and tells you what's missing. It checks six things:
 
-- 🗡️ Does the agent know what it is? (**Role Clarity**)
+- 💥 Does the agent know what it is? (**Role Clarity**)
 - 🛡️ Does it have rules? (**Constraint Density**)
-- 🧚 Did you tell it not to make things up? (**Hallucination Guardrails**)
-- 📜 Does it know what format to respond in? (**Output Specificity**)
+- 📡 Did you tell it not to make things up? (**Hallucination Guardrails**)
+- 🗺️ Does it know what format to respond in? (**Output Specificity**)
 - 🎯 Can you tell if it's working? (**Testability**)
-- 💙 Does it know what to do when it's stuck? (**Escape Hatches**)
+- ⚡ Does it know what to do when it's stuck? (**Escape Hatches**)
 
 So naturally, I pointed it at the AI agents that built it.
 
 Their average score? **27 out of 100.**
 
-The tools I trusted to build software autonomously were walking into battle with no armor. Half their inventory was empty. They worked — but only because they got lucky.
+The tools I trusted to build software autonomously were dropping into hostile territory with no suit upgrades. Half their systems were offline. They worked — but only because they got lucky.
 
 ---
 
@@ -47,7 +47,7 @@ The tools I trusted to build software autonomously were walking into battle with
 
 Here's where it gets recursive.
 
-I used Agent Armor's scores to see exactly what each agent was missing. Low on Hallucination Guardrails? I added lines like *"Do not fabricate data. If unsure, say so explicitly."* Low on Escape Hatches? I added *"If you cannot complete the task, escalate to the user rather than guessing."*
+I used Agent X-Ray's scores to see exactly what each agent was missing. Low on Hallucination Guardrails? I added lines like *"Do not fabricate data. If unsure, say so explicitly."* Low on Escape Hatches? I added *"If you cannot complete the task, escalate to the user rather than guessing."*
 
 I upgraded all 12 agents. Ran the scan again.
 
@@ -58,11 +58,11 @@ The AI that built the tool got better because of the tool it built. And now, the
 That's not a pipeline. That's a flywheel.
 
 ```
-Dark Factory → builds Agent Armor
+Dark Factory → builds Agent X-Ray
                     ↓
-         Agent Armor → scores the agents
+         Agent X-Ray → scans the agents
                     ↓
-         Scores reveal gaps → agents get upgraded
+         Scans reveal gaps → agents get upgraded
                     ↓
          Upgraded agents → make Dark Factory stronger
                     ↓
@@ -109,36 +109,36 @@ The sealed-envelope pattern matters more than any other architectural choice in 
 
 ### 3. The recursive loop is the real product
 
-Agent Armor is useful on its own. But the fact that it improves the system that created it — that's the breakthrough. Every tool the factory builds can potentially feed back into making the factory better.
+Agent X-Ray is useful on its own. But the fact that it improves the system that created it — that's the breakthrough. Every tool the factory builds can potentially feed back into making the factory better.
 
 ### 4. Most AI agents are under-equipped
 
-When I scanned my 12 agents, the average was 27/100. These are agents I use daily. They function fine most of the time — but they're missing shields, potions, and escape routes. They're walking into boss fights with half a heart and no armor. They survive — until they don't.
+When I scanned my 12 agents, the average was 27/100. These are agents I use daily. They function fine most of the time — but they're missing suit upgrades, energy tanks, and escape routes. They're dropping into Ridley's lair with half an energy tank and no Varia Suit. They survive — until they don't.
 
-If you're running AI agents, scan them. You'll be surprised how many empty slots they have.
+If you're running AI agents, scan them. You'll be surprised how many empty upgrade slots they have.
 
 ---
 
 ## Try It Yourself
 
 ```bash
-git clone https://github.com/DUBSOpenHub/agent-armor.git
-cd agent-armor
-node agent-armor.js --fleet ~/.copilot/agents/
+git clone https://github.com/DUBSOpenHub/agent-xray.git
+cd agent-xray
+node agent-xray.js --fleet ~/.copilot/agents/
 ```
 
 One command. Zero dependencies. You'll get a score for every agent in your fleet, and you'll know exactly what to fix.
 
-The scores use hearts:
+The scores use energy indicators:
 
 ```
-  🗡️ Role Clarity             [ 75] ████████████████████░░░  💚💚💚💚🖤
-  🧚 Hallucination Guardrails [ 26] ████████░░░░░░░░░░░░░░  🔴🖤🖤🖤🖤
+  💥 Role Clarity             [ 75] ████████████████████░░░  🟢🟢🟢🟢⬛
+  📡 Hallucination Guardrails [ 26] ████████░░░░░░░░░░░░░░  🔴⬛⬛⬛⬛
 ```
 
-If your composite is under 50: ⚠️ *Under-leveled. Visit the blacksmith.*
+If your composite is under 50: ⚠️ *Suit incomplete. Visit the Chozo Statue.*
 
-The README tells you exactly which lines to add for each dimension. Paste them into your agent prompt, rescan, watch the hearts fill up.
+The README tells you exactly which lines to add for each dimension. Paste them into your agent prompt, rescan, watch the energy tanks fill up.
 
 ---
 
@@ -166,4 +166,4 @@ We're about to find out.
 
 ---
 
-*Built with [Dark Factory](https://github.com/DUBSOpenHub/dark-factory). Scanned with [Agent Armor](https://github.com/DUBSOpenHub/agent-armor). Created by [DUBSOpenHub](https://github.com/DUBSOpenHub).* 🏭🛡️
+*Built with [Dark Factory](https://github.com/DUBSOpenHub/dark-factory). Scanned with [Agent X-Ray](https://github.com/DUBSOpenHub/agent-xray). Created by [DUBSOpenHub](https://github.com/DUBSOpenHub).* 🏭🔬
