@@ -144,6 +144,16 @@ Add these lines:
 
 Rescan. Watch the hearts fill up. 💚💚💚
 
+### 📂 Where are my agent files?
+
+| Platform | Path |
+|----------|------|
+| Copilot CLI agents | `~/.copilot/agents/*.agent.md` |
+| Repo-level instructions | `.github/copilot-instructions.md` |
+| Custom agents (repo) | `.github/agents/*.md` |
+
+Open the file, paste the lines above, save, rescan. That's it.
+
 ## ⚙️ How It Works
 
 No magic. No AI. Just pattern matching. Think of it as a treasure detector — it beeps when it finds the right keywords in your prompt.
