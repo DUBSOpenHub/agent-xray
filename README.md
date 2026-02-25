@@ -161,6 +161,10 @@ MIT
 
 ---
 
+🏭 **Built with [Dark Factory](DARK-FACTORY.md)** — 6 AI agents, sealed-envelope testing, 0% gap score. [Read the build log →](DARK-FACTORY.md)
+
+---
+
 ## 🐙 Built with Love
 
 Created with 💜 by [DUBSOpenHub](https://github.com/DUBSOpenHub) to help more people discover the joy of GitHub Copilot CLI.
