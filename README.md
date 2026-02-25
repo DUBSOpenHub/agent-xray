@@ -35,7 +35,7 @@ No install. Just Node.js 18+.
 
 ```bash
 # Clone and run
-git clone https://github.com/greggcochran/agent-armor.git
+git clone https://github.com/DUBSOpenHub/agent-armor.git
 cd agent-armor
 node agent-armor.js my-agent.md
 ```
@@ -44,14 +44,22 @@ Zero dependencies. Single file. No `npm install`.
 
 ## The 6 Dimensions
 
-| Dimension | What It Checks | Example Signal |
-|-----------|---------------|----------------|
-| **Role Clarity** | Does it define who the agent is? | "You are a security auditor" |
-| **Constraint Density** | Are there explicit rules and limits? | "Never modify production data" |
-| **Hallucination Guardrails** | Does it defend against making things up? | "Do not fabricate error messages" |
-| **Output Specificity** | Is the output format defined? | "Format as JSON with these keys" |
-| **Testability** | Can you verify the agent's behavior? | "Given X input, expected output is Y" |
-| **Escape Hatches** | Does it know what to do when stuck? | "If you cannot diagnose, escalate" |
+Think of your AI agent heading into a dungeon.
+
+**Without Agent Armor**, your agent walks in with no shield, no hearts, no fairy in a bottle, and no map. They might survive — but one wrong move and they're done.
+
+**Agent Armor scans your agent and shows you what's missing — so you know exactly which power-ups to grab:**
+
+| Dimension | Zelda Equivalent | What Happens Without It |
+|-----------|-----------------|------------------------|
+| 🗡️ **Role Clarity** | The Master Sword | Your agent doesn't know what they are — they're swinging a stick |
+| 🛡️ **Constraint Density** | Hylian Shield | No rules = no defense. Every bad input gets through |
+| 🧚 **Hallucination Guardrails** | Navi saying "Hey! Listen!" | Nobody stops your agent from making up fake treasure maps |
+| 📜 **Output Specificity** | Dungeon Map | Without it, your agent wanders — output is random, unstructured |
+| 🎯 **Testability** | Target Practice | Can you even tell if your agent hit the bullseye? |
+| 💙 **Escape Hatches** | Magic Potion | When your agent dies mid-task, there's nothing to revive them |
+
+**Run the scan. Grab the missing power-ups. Send your agent back in fully armored.**
 
 Each dimension: **0–100**. Composite: **arithmetic mean**.
 
