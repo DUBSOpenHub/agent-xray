@@ -33,17 +33,15 @@ Most agents ship with half their inventory empty. They work — until they don't
 
 Scan. Upgrade. Rescan. Full hearts. 💚💚💚
 
-## ⚔️ Equip Your Weapon
-
-No crafting table needed. Just Node.js 18+.
+## 🚀 Quick Start
 
 ```bash
 git clone https://github.com/DUBSOpenHub/agent-armor.git
 cd agent-armor
-node agent-armor.js my-agent.md
+node agent-armor.js --fleet ~/.copilot/agents/
 ```
 
-Zero dependencies. Single file. No `npm install`. Pick it up and swing.
+That's it. One command scans your entire agent fleet. No dependencies. No setup. Just answers.
 
 ## 🗺️ The 6 Dimensions
 
@@ -66,37 +64,21 @@ Think of your AI agent heading into a dungeon.
 
 Each dimension: **0–100**. Composite: **arithmetic mean**.
 
-## 🎮 Quests
+## 🎮 More Quests
 
-### ⚔️ Solo Quest — scan one agent
+### ⚔️ Scan one agent
 
 ```bash
 node agent-armor.js my-agent.md
 ```
 
-### 🏰 Dungeon Sweep — scan the whole fleet
-
-```bash
-node agent-armor.js --fleet ./agents/
-```
-
-```
-Rank │ File                    │  Role │ Constraint │ Hallucination │ Output │ Testability │ Escape │ Composite
-────┼────────────────────────┼───────┼───────┼───────┼───────┼───────┼───────┼─────
-  1 │ grid-medic.agent.md    │    87 │   100 │   100 │    48 │   100 │   100 │   89
-  2 │ security-audit.agent.md│    60 │    76 │    68 │    64 │    62 │    40 │   62
-  ...
-────┼────────────────────────┼───────┼───────┼───────┼───────┼───────┼───────┼─────
-    │ MEAN                   │       │       │       │       │       │       │   67
-```
-
-### 🏅 Forge a Badge — generate an SVG trophy
+### 🏅 Forge a Badge
 
 ```bash
 node agent-armor.js my-agent.md --badge badge.svg
 ```
 
-### 📜 Scroll of Truth — JSON output for CI
+### 📜 JSON output for CI
 
 ```bash
 node agent-armor.js my-agent.md --json
