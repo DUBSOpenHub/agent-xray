@@ -4,6 +4,8 @@
 
 Agent X-Ray scans your AI agent's prompt and reveals exactly which suit upgrades they're missing — before they get wrecked by Space Pirates.
 
+🌍 **Works in any terminal.** Scans any `.md` agent prompt — Copilot, ChatGPT, Claude, LangChain, CrewAI, or your own custom agents. Zero dependencies. Just Node.js.
+
 🏭 **Built with [Dark Factory](https://github.com/DUBSOpenHub/dark-factory)** — 6 AI agents, sealed-envelope testing, 0% gap score. [Read the build log →](DARK-FACTORY.md)
 
 ```
@@ -40,10 +42,15 @@ Scan. Upgrade. Rescan. Full energy. 🟢🟢🟢
 ```bash
 git clone https://github.com/DUBSOpenHub/agent-xray.git
 cd agent-xray
+
+# Scan any agent prompt
+node agent-xray.js path/to/my-agent.md
+
+# Scan an entire folder of agents
 node agent-xray.js --fleet ~/.copilot/agents/
 ```
 
-That's it. One command scans your entire agent fleet. No dependencies. No setup. Just answers.
+That's it. Point it at any `.md` file with agent instructions. No dependencies. No setup. Just answers.
 
 ## 🗺️ The 6 Dimensions
 
@@ -165,6 +172,8 @@ It searches for patterns like `"you are"`, `"never"`, `"do not fabricate"`, `"fo
 ## 📋 Requirements
 
 - Node.js 18+
+- macOS, Linux, or Windows
+- Works in any terminal — no GitHub Copilot CLI required
 - That's it. No side missions.
 
 ## License
