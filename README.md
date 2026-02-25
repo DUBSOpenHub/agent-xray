@@ -4,6 +4,8 @@
 
 Agent Armor scans your AI agent's prompt and tells you exactly which power-ups they're missing — before they get wrecked.
 
+🌍 **Works in any terminal.** Scans any `.md` agent prompt — Copilot, ChatGPT, Claude, LangChain, CrewAI, or your own custom agents. Zero dependencies. Just Node.js.
+
 🏭 **Built with [Dark Factory](https://github.com/DUBSOpenHub/dark-factory)** — 6 AI agents, sealed-envelope testing, 0% gap score. [Read the build log →](DARK-FACTORY.md)
 
 ```
@@ -40,10 +42,15 @@ Scan. Upgrade. Rescan. Full hearts. 💚💚💚
 ```bash
 git clone https://github.com/DUBSOpenHub/agent-armor.git
 cd agent-armor
+
+# Scan any agent prompt
+node agent-armor.js path/to/my-agent.md
+
+# Scan an entire folder of agents
 node agent-armor.js --fleet ~/.copilot/agents/
 ```
 
-That's it. One command scans your entire agent fleet. No dependencies. No setup. Just answers.
+That's it. Point it at any `.md` file with agent instructions. No dependencies. No setup. Just answers.
 
 ## 🗺️ The 6 Dimensions
 
@@ -148,9 +155,13 @@ Rescan. Watch the hearts fill up. 💚💚💚
 
 | Platform | Path |
 |----------|------|
-| Copilot CLI agents | `~/.copilot/agents/*.agent.md` |
+| GitHub Copilot CLI | `~/.copilot/agents/*.agent.md` |
 | Repo-level instructions | `.github/copilot-instructions.md` |
 | Custom agents (repo) | `.github/agents/*.md` |
+| ChatGPT custom GPTs | Export your system prompt to a `.md` file |
+| Claude Projects | Copy your project instructions to a `.md` file |
+| LangChain / CrewAI | Your agent definition `.md` or `.yaml` files |
+| Any AI agent | Any `.md` file with agent instructions works |
 
 Open the file, paste the lines above, save, rescan. That's it.
 
@@ -165,6 +176,8 @@ It searches for patterns like `"you are"`, `"never"`, `"do not fabricate"`, `"fo
 ## 📋 Requirements
 
 - Node.js 18+
+- macOS, Linux, or Windows
+- Works in any terminal — no GitHub Copilot CLI required
 - That's it. No side quests.
 
 ## License
