@@ -176,3 +176,11 @@ It searches for patterns like `"you are"`, `"never"`, `"do not fabricate"`, `"fo
 ## License
 
 MIT
+
+---
+
+## 🐙 Built with Love
+
+Created with 💜 by [DUBSOpenHub](https://github.com/DUBSOpenHub) to help more people discover the joy of GitHub Copilot CLI.
+
+Let's build! 🚀✨
