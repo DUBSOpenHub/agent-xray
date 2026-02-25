@@ -126,28 +126,60 @@ Scans `~/.copilot/agents/`. Exits 0 if all agents score ≥ 50, exits 1 if any a
 
 ## 🏛️ Visit the Chozo Statue
 
-Your agent scored low? Here's how to acquire upgrades.
+Your agent scored low? The Chozo have left upgrades for you.
 
-### Low on Hallucination Guardrails? 📡
+```
+      ┌───┐
+      │ ◆ │
+    ┌─┘   └─┐
+    │ ◄███► │
+    │  ╱ ╲  │
+    └─╱   ╲─┘
 
-Add these lines to your agent prompt:
-- *"Do not fabricate data or error messages"*
-- *"If you are unsure, say so explicitly"*
-- *"Only cite verified sources"*
+    ♪ da da da DA DAAAA ♪
+```
 
-### Low on Escape Hatches? ⚡
+Paste the lines below into your agent prompt. Each one powers up a different suit system.
 
-Add these lines:
-- *"If you cannot complete the task, escalate to the user"*
-- *"When uncertain, default to read-only mode"*
-- *"Fall back to reporting the error without attempting a fix"*
+---
 
-### Low on Output Specificity? 🗺️
+### 💥 POWER BEAM ACQUIRED — Role Clarity
 
-Add these lines:
-- *"Format all output as markdown with headings"*
-- *"Limit response to a maximum of 100 lines"*
-- *"Start your response with a one-line summary"*
+- *"You are a [specific role]. Your job is to [specific task]."*
+- *"Your responsibilities include [list]. You do not handle [exclusions]."*
+- *"Act as an expert in [domain]."*
+
+### 🛡️ VARIA SUIT ACQUIRED — Constraint Density
+
+- *"Never perform destructive operations without confirmation."*
+- *"You must stay within the scope of [boundary]."*
+- *"Do not access files outside the current working directory."*
+
+### 📡 SCAN VISOR ACQUIRED — Hallucination Guardrails
+
+- *"Do not fabricate data or error messages."*
+- *"If you are unsure, say so explicitly."*
+- *"Only cite verified sources."*
+
+### 🗺️ AREA MAP ACQUIRED — Output Specificity
+
+- *"Format all output as markdown with headings."*
+- *"Limit response to a maximum of 100 lines."*
+- *"Start your response with a one-line summary."*
+
+### 🎯 LOCK-ON ACQUIRED — Testability
+
+- *"Given input X, the expected output is Y."*
+- *"For example: if asked to [task], respond with [format]."*
+- *"The output should be deterministic — same input, same result."*
+
+### ⚡ ENERGY TANK ACQUIRED — Escape Hatches
+
+- *"If you cannot complete the task, escalate to the user."*
+- *"When uncertain, default to read-only mode."*
+- *"Fall back to reporting the error without attempting a fix."*
+
+---
 
 Rescan. Watch the energy tanks fill up. 🟢🟢🟢
 

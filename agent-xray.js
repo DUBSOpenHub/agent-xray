@@ -225,6 +225,43 @@ function renderVerdict(score) {
   return '  \uD83D\uDEA8 Critical energy. Major upgrades needed before deployment.\n';
 }
 
+const UPGRADE_NAMES = {
+  roleClarity:         'POWER BEAM',
+  constraintDensity:   'VARIA SUIT',
+  hallucinationGuards: 'SCAN VISOR',
+  outputSpecificity:   'AREA MAP',
+  testability:         'LOCK-ON TARGETING',
+  escapeHatches:       'ENERGY TANK',
+};
+
+function renderChozo(dimensions) {
+  const low = DIMENSIONS
+    .filter(d => dimensions[d.key] < 40)
+    .sort((a, b) => dimensions[a.key] - dimensions[b.key]);
+  if (low.length === 0) return '';
+
+  const top = low[0];
+  const upgradeName = UPGRADE_NAMES[top.key] || top.label.toUpperCase();
+
+  let out = '\n';
+  out += '      \u250C\u2500\u2500\u2500\u2510\n';
+  out += '      \u2502 \u25C6 \u2502\n';
+  out += '    \u250C\u2500\u2518   \u2514\u2500\u2510\n';
+  out += '    \u2502 \u25C4\u2588\u2588\u2588\u25BA \u2502\n';
+  out += '    \u2502  \u2571 \u2572  \u2502\n';
+  out += '    \u2514\u2500\u2571   \u2572\u2500\u2518\n';
+  out += '\n';
+  out += '    \u266A da da da DA DAAAA \u266A\n';
+
+  for (const dim of low) {
+    const name = UPGRADE_NAMES[dim.key] || dim.label.toUpperCase();
+    out += '    ' + dim.icon + ' ' + name + ' ACQUIRED\n';
+  }
+  out += '\n';
+
+  return out;
+}
+
 function renderBarChart(result) {
   const { file, dimensions, composite: comp, wordCount } = result;
   const name       = path.basename(file);
@@ -248,7 +285,10 @@ function renderBarChart(result) {
          renderBar(comp, BAR_WIDTH) + '  ' + renderEnergy(comp) + '\n\n';
 
   out += renderVerdict(comp);
-  out += '\n';
+
+  if (comp < 50) {
+    out += renderChozo(dimensions);
+  }
 
   return out;
 }
@@ -596,6 +636,7 @@ module.exports = {
   colorize,
   renderBar,
   renderEnergy,
+  renderChozo,
   renderBarChart,
   renderTable,
   renderBadge,
