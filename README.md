@@ -4,6 +4,8 @@
 
 Agent Armor scans your AI agent's prompt and tells you exactly which power-ups they're missing — before they get wrecked.
 
+🏭 **Built with [Dark Factory](DARK-FACTORY.md)** — 6 AI agents, sealed-envelope testing, 0% gap score. [Read the build log →](DARK-FACTORY.md)
+
 ```
 node agent-armor.js my-agent.md
 ```
