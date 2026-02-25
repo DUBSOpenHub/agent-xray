@@ -9,12 +9,12 @@ const fs   = require('fs');
 const path = require('path');
 
 const DIMENSIONS = [
-  { key: 'roleClarity',         label: 'Role Clarity'             },
-  { key: 'constraintDensity',   label: 'Constraint Density'       },
-  { key: 'hallucinationGuards', label: 'Hallucination Guardrails' },
-  { key: 'outputSpecificity',   label: 'Output Specificity'       },
-  { key: 'testability',         label: 'Testability'              },
-  { key: 'escapeHatches',       label: 'Escape Hatches'           },
+  { key: 'roleClarity',         label: 'Role Clarity',             icon: '🗡️'  },
+  { key: 'constraintDensity',   label: 'Constraint Density',       icon: '🛡️'  },
+  { key: 'hallucinationGuards', label: 'Hallucination Guardrails', icon: '🧚' },
+  { key: 'outputSpecificity',   label: 'Output Specificity',       icon: '📜' },
+  { key: 'testability',         label: 'Testability',              icon: '🎯' },
+  { key: 'escapeHatches',       label: 'Escape Hatches',           icon: '💙' },
 ];
 
 const COLOR_THRESHOLDS = { red: 39, yellow: 69 };
@@ -205,27 +205,50 @@ function renderBar(score, width) {
   return colorize(score) + bar + ANSI_RESET;
 }
 
+function renderHearts(score) {
+  const total = 5;
+  if (score >= 70) {
+    const filled = Math.min(total, Math.round(score / 100 * total));
+    return '\uD83D\uDC9A'.repeat(filled) + '\uD83D\uDDA4'.repeat(total - filled);
+  } else if (score >= 40) {
+    const filled = Math.round(score / 100 * total);
+    return '\uD83D\uDFE1'.repeat(filled) + '\uD83D\uDDA4'.repeat(total - filled);
+  } else {
+    const filled = Math.max(1, Math.round(score / 100 * total));
+    return '\uD83D\uDD34'.repeat(filled) + '\uD83D\uDDA4'.repeat(total - filled);
+  }
+}
+
+function renderVerdict(score) {
+  if (score >= 70) return '  \uD83D\uDC9A Ready for the boss fight.\n';
+  if (score >= 50) return '  \u26A0\uFE0F  Under-leveled. Visit the blacksmith.\n';
+  return '  \uD83D\uDCA0 Critical HP. Needs serious power-ups before deploying.\n';
+}
+
 function renderBarChart(result) {
   const { file, dimensions, composite: comp, wordCount } = result;
   const name       = path.basename(file);
   const labelWidth = 26;
   const BAR_WIDTH  = 30;
 
-  let out = '\n' + ANSI_BOLD + 'agent-armor: ' + name + ANSI_RESET +
+  let out = '\n' + ANSI_BOLD + '\uD83D\uDEE1\uFE0F  agent-armor: ' + name + ANSI_RESET +
             '  (' + wordCount + ' words)\n\n';
 
-  for (const { key, label } of DIMENSIONS) {
+  for (const { key, label, icon } of DIMENSIONS) {
     const score     = dimensions[key];
     const padLabel  = label.padEnd(labelWidth);
     const scoreStr  = String(score).padStart(3);
-    out += '  ' + padLabel + ' [' + scoreStr + '] ' + renderBar(score, BAR_WIDTH) + '\n';
+    out += '  ' + icon + ' ' + padLabel + ' [' + scoreStr + '] ' + renderBar(score, BAR_WIDTH) + '  ' + renderHearts(score) + '\n';
   }
 
-  const divider = '─'.repeat(labelWidth + BAR_WIDTH + 9);
+  const divider = '\u2500'.repeat(labelWidth + BAR_WIDTH + 16);
   out += '  ' + divider + '\n';
-  out += '  ' + 'Composite'.padEnd(labelWidth) +
+  out += '  \u2694\uFE0F  ' + 'Composite'.padEnd(labelWidth) +
          ' [' + String(comp).padStart(3) + '] ' +
-         renderBar(comp, BAR_WIDTH) + '\n\n';
+         renderBar(comp, BAR_WIDTH) + '  ' + renderHearts(comp) + '\n\n';
+
+  out += renderVerdict(comp);
+  out += '\n';
 
   return out;
 }
