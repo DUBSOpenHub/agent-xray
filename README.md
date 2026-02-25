@@ -23,11 +23,13 @@ agent-armor: my-agent.md  (1848 words)
 
 ## Why This Tool?
 
-It's a spell-checker, but for AI instructions. Just like a doctor checks your blood pressure, heart rate, and cholesterol — this checks six vital signs of an AI's instruction manual. Are the instructions clear? Are there safety rails? Does the AI know what to do when it's confused?
+Ever send your agent on a quest and they come back with completely made-up answers? Or freeze when they hit something unexpected? That's an agent with no armor.
 
-For example, one of the things it checks is whether you told your AI "don't make things up." Without that, an AI might confidently give you fake data and you'd never know. It's like a car without brakes — it still drives, but you really want those brakes before you hit the road.
+Agent Armor checks whether your agent is actually equipped for battle. Did you tell them not to make things up? That's their 🧚 Navi. Did you tell them what to do when they're stuck? That's their 💙 Magic Potion. Did you define their output format? That's their 📜 Dungeon Map.
 
-You get a score. If it's low, you know exactly what to fix. You fix it, run the checkup again, score goes up. Healthier agent, safer results.
+Most agents ship with half their inventory empty. They work — until they don't. Agent Armor shows you the empty slots so you can fill them before your agent face-plants in production.
+
+Scan. Upgrade. Rescan. Full hearts. 💚💚💚
 
 ## ⚔️ Equip Your Weapon
 
