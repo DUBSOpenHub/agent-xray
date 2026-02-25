@@ -16,7 +16,7 @@ So I said this to my terminal:
 dark factory
 ```
 
-And described what I wanted: a CLI that scans AI agent prompts and scores them across six dimensions. Think of it as a health checkup for the instructions you give your AI.
+And described what I wanted: a CLI that scans AI agent prompts and scores them across six dimensions. Think of it as an inventory check before your agent enters the dungeon — do they have a sword, a shield, a map, and a potion? Or are they walking in empty-handed?
 
 19 minutes later, I had a working tool. 605 lines of code. 171 tests passing. Zero lines written by me.
 
@@ -113,7 +113,7 @@ Agent Armor is useful on its own. But the fact that it improves the system that 
 
 ### 4. Most AI agents are under-equipped
 
-When I scanned my 12 agents, the average was 27/100. These are agents I use daily. They function fine most of the time — but they're missing safety rails, fallback behaviors, and output structure. Like a car without brakes: it drives, but you really want those brakes before you hit the highway.
+When I scanned my 12 agents, the average was 27/100. These are agents I use daily. They function fine most of the time — but they're missing shields, potions, and escape routes. They're walking into boss fights with half a heart and no armor. They survive — until they don't.
 
 If you're running AI agents, scan them. You'll be surprised how many empty slots they have.
 
