@@ -1,8 +1,22 @@
 # 🏭 Dark Factory Build Log
 
-**Agent X-Ray** was built entirely by the [Dark Factory](https://github.com/DUBSOpenHub/dark-factory) — an autonomous AI build system that orchestrates 6 specialist agents through a checkpoint-gated pipeline with sealed-envelope testing.
+**Agent X-Ray v1.0** was built entirely by the [Dark Factory](https://github.com/DUBSOpenHub/dark-factory) — an autonomous AI build system that orchestrates 6 specialist agents through a checkpoint-gated pipeline with sealed-envelope testing.
 
-No human wrote the code. A human described the goal. The factory built it.
+No human wrote the initial code. A human described the goal. The factory built v1.
+
+---
+
+## Post-Factory Changes
+
+The following features were added after the original Dark Factory build:
+
+| Version | Feature | Description |
+|---------|---------|-------------|
+| v1.1 | **Keyword Density Ratio** | Anti-gaming: penalizes keywords in thin sentences (<10 words) |
+| v1.1 | **`--profile` flag** | Built-in scoring profiles: balanced, security, creative, ci-gate, assistant |
+| v1.1 | **`--strict` flag** | Optional LLM evaluation of keyword quality (OpenAI-compatible) |
+
+These changes were human-directed enhancements built on the factory's foundation.
 
 ---
 
