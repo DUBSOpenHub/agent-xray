@@ -1,8 +1,8 @@
 # 🛡️ Agent Armor
 
-**A health checkup for your AI agents.**
+> *Your agent is about to enter the dungeon. Are they ready?*
 
-Score any `.md` agent prompt across 6 dimensions. See what's missing. Fix it. Rescan. Stronger agent.
+Agent Armor scans your AI agent's prompt and tells you exactly which power-ups they're missing — before they get wrecked.
 
 ```
 node agent-armor.js my-agent.md
@@ -29,20 +29,19 @@ For example, one of the things it checks is whether you told your AI "don't make
 
 You get a score. If it's low, you know exactly what to fix. You fix it, run the checkup again, score goes up. Healthier agent, safer results.
 
-## Install
+## ⚔️ Equip Your Weapon
 
-No install. Just Node.js 18+.
+No crafting table needed. Just Node.js 18+.
 
 ```bash
-# Clone and run
 git clone https://github.com/DUBSOpenHub/agent-armor.git
 cd agent-armor
 node agent-armor.js my-agent.md
 ```
 
-Zero dependencies. Single file. No `npm install`.
+Zero dependencies. Single file. No `npm install`. Pick it up and swing.
 
-## The 6 Dimensions
+## 🗺️ The 6 Dimensions
 
 Think of your AI agent heading into a dungeon.
 
@@ -63,21 +62,19 @@ Think of your AI agent heading into a dungeon.
 
 Each dimension: **0–100**. Composite: **arithmetic mean**.
 
-## Usage
+## 🎮 Quests
 
-### Score a single file
+### ⚔️ Solo Quest — scan one agent
 
 ```bash
 node agent-armor.js my-agent.md
 ```
 
-### Scan a fleet
+### 🏰 Dungeon Sweep — scan the whole fleet
 
 ```bash
 node agent-armor.js --fleet ./agents/
 ```
-
-Prints a ranked table sorted by composite score:
 
 ```
 Rank │ File                    │  Role │ Constraint │ Hallucination │ Output │ Testability │ Escape │ Composite
@@ -89,13 +86,13 @@ Rank │ File                    │  Role │ Constraint │ Hallucination │ 
     │ MEAN                   │       │       │       │       │       │       │   67
 ```
 
-### Generate an SVG badge
+### 🏅 Forge a Badge — generate an SVG trophy
 
 ```bash
 node agent-armor.js my-agent.md --badge badge.svg
 ```
 
-### JSON output (for CI pipelines)
+### 📜 Scroll of Truth — JSON output for CI
 
 ```bash
 node agent-armor.js my-agent.md --json
@@ -116,48 +113,61 @@ node agent-armor.js my-agent.md --json
 }
 ```
 
-### Self-test (scan your Copilot agents)
+### 🔮 Mirror of Truth — self-test your Copilot agents
 
 ```bash
 node agent-armor.js --self-test
 ```
 
-Scans `~/.copilot/agents/`. Exits 0 if all agents score ≥ 50, exits 1 if any are below.
+Scans `~/.copilot/agents/`. Exits 0 if all agents score ≥ 50, exits 1 if any are below. Put it in CI — gate your agents like a dungeon boss.
 
-## Score Colors
+## 💚 Health Bar
 
-| Score | Color | Meaning |
-|-------|-------|---------|
-| 0–39 | 🔴 Red | Needs work |
-| 40–69 | 🟡 Yellow | Getting there |
-| 70–100 | 🟢 Green | Solid |
+| Score | Hearts | Status |
+|-------|--------|--------|
+| 0–39 | 🔴🔴🔴 | Critical HP — one hit and they're done |
+| 40–69 | 🟡🟡🟡 | Half hearts — survivable but risky |
+| 70–100 | 💚💚💚 | Full hearts — ready for the boss fight |
 
-## How to Improve a Score
+## 🔨 Visit the Blacksmith
 
-The tool tells you **what's missing**, not just that something is wrong.
+Your agent scored low? Here's how to forge upgrades.
 
-Low on **Hallucination Guardrails**? Add lines like:
-- "Do not fabricate data or error messages"
-- "If you are unsure, say so explicitly"
-- "Only cite verified sources"
+### Low on Hallucination Guardrails? 🧚
 
-Low on **Escape Hatches**? Add lines like:
-- "If you cannot complete the task, escalate to the user"
-- "When uncertain, default to read-only mode"
-- "Fall back to reporting the error without attempting a fix"
+Add these lines to your agent prompt:
+- *"Do not fabricate data or error messages"*
+- *"If you are unsure, say so explicitly"*
+- *"Only cite verified sources"*
 
-Rescan. Watch the score climb.
+### Low on Escape Hatches? 💙
 
-## How It Works
+Add these lines:
+- *"If you cannot complete the task, escalate to the user"*
+- *"When uncertain, default to read-only mode"*
+- *"Fall back to reporting the error without attempting a fix"*
 
-Pure keyword and regex matching — no AI, no API calls, no network. It searches for patterns like "you are", "never", "do not fabricate", "for example", "if you cannot" and scores based on their presence and density.
+### Low on Output Specificity? 📜
 
-**Deterministic**: same file → same score, every time.
+Add these lines:
+- *"Format all output as markdown with headings"*
+- *"Limit response to a maximum of 100 lines"*
+- *"Start your response with a one-line summary"*
 
-## Requirements
+Rescan. Watch the hearts fill up. 💚💚💚
+
+## ⚙️ How It Works
+
+No magic. No AI. Just pattern matching. Think of it as a treasure detector — it beeps when it finds the right keywords in your prompt.
+
+It searches for patterns like `"you are"`, `"never"`, `"do not fabricate"`, `"for example"`, `"if you cannot"` and scores based on their presence and density.
+
+**Deterministic**: same file → same score, every time. No RNG in this dungeon.
+
+## 📋 Requirements
 
 - Node.js 18+
-- That's it
+- That's it. No side quests.
 
 ## License
 
