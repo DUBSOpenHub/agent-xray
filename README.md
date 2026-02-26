@@ -27,6 +27,11 @@ node agent-xray.js my-agent.md
   ⚠️  Suit incomplete. Visit the Chozo Statue.
 ```
 
+> ⚡ **Get started fast!** Clone and run in one line:
+> ```bash
+> git clone https://github.com/DUBSOpenHub/agent-armor.git && cd agent-armor && node agent-armor.js my-agent.md
+> ```
+
 ## Why This Tool?
 
 Ever send your agent on a mission and they come back with completely fabricated data? Or freeze when they hit something unexpected? That's an agent with no suit upgrades.
