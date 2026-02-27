@@ -12,7 +12,7 @@ Not "help me write some functions." Not "autocomplete my code." I wanted to see 
 
 So I started by not even choosing what to build.
 
-I ran [Havoc Hackathon](https://github.com/DUBSOpenHub/agent-xray), a multi-model tournament that pits up to 14 AI models against each other in elimination heats. I gave them one prompt: *"What's the most attention-grabbing demo project to build with Dark Factory?"* No hints. No guidance. Just compete.
+I ran [Havoc Hackathon](https://github.com/DUBSOpenHub/havoc-hackathon), a multi-model tournament that pits up to 14 AI models against each other in elimination heats. I gave them one prompt: *"What's the most attention-grabbing demo project to build with Dark Factory?"* No hints. No guidance. Just compete.
 
 14 models entered. 4 heats. Sealed judge panels scored each pitch on hook, clarity, visual output, Dark Factory fit, and feasibility. The pitches ranged from adversarial benchmarks to self-diagnosing auditors to PR security scanners.
 
@@ -207,7 +207,7 @@ The v1 numbers in this post (605 lines, 171 tests, 19 minutes) are the factory's
 
 ## What's Next
 
-I'm still exploring. Agent X-Ray now scans the agents that power both [Havoc Hackathon](https://github.com/DUBSOpenHub/agent-xray) and [Dark Factory](https://github.com/DUBSOpenHub/dark-factory), the same two systems that created it. The hackathon models get scanned and upgraded. The factory agents get scanned and upgraded. Both systems get a little stronger each time.
+I'm still exploring. Agent X-Ray now scans the agents that power both [Havoc Hackathon](https://github.com/DUBSOpenHub/havoc-hackathon) and [Dark Factory](https://github.com/DUBSOpenHub/dark-factory), the same two systems that created it. The hackathon models get scanned and upgraded. The factory agents get scanned and upgraded. Both systems get a little stronger each time.
 
 I didn't set out to build a closed loop. I just kept following the curiosity: what if I scan *these* agents? What if I upgrade *those*? Each step taught me something new about how these systems actually work under the hood.
 
@@ -217,4 +217,4 @@ I'm still finding out.
 
 ---
 
-*Idea by [Havoc Hackathon](https://github.com/DUBSOpenHub/agent-xray). Built with [Dark Factory](https://github.com/DUBSOpenHub/dark-factory). Scanned with [Agent X-Ray](https://github.com/DUBSOpenHub/agent-xray). Created by [DUBSOpenHub](https://github.com/DUBSOpenHub).* 🏟️🏭🔬
+*Idea by [Havoc Hackathon](https://github.com/DUBSOpenHub/havoc-hackathon). Built with [Dark Factory](https://github.com/DUBSOpenHub/dark-factory). Scanned with [Agent X-Ray](https://github.com/DUBSOpenHub/agent-xray). Created by [DUBSOpenHub](https://github.com/DUBSOpenHub).* 🏟️🏭🔬
