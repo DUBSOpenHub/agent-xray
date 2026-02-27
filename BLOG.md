@@ -8,15 +8,23 @@
 
 I wanted to know: could AI build a useful tool from scratch — spec to ship — without me writing a single line of code?
 
-Not "help me write some functions." Not "autocomplete my code." I mean: I describe what I want, and six AI agents handle everything — product spec, architecture, implementation, testing, and delivery — while I watch.
+Not "help me write some functions." Not "autocomplete my code." I mean: AI picks the idea, AI builds it, and I watch.
 
-So I said this to my terminal:
+So I started by not even choosing what to build.
+
+I ran [Havoc Hackathon](https://github.com/DUBSOpenHub/agent-xray) — a multi-model tournament that pits up to 14 AI models against each other in elimination heats. I gave them one prompt: *"What's the most attention-grabbing demo project to build with Dark Factory?"* No hints. No guidance. Just compete.
+
+14 models entered. 4 heats. Sealed judge panels scored each pitch on hook, clarity, visual output, Dark Factory fit, and feasibility. The pitches ranged from adversarial benchmarks to self-diagnosing auditors to PR security scanners.
+
+The winner? **Claude Opus 4.6 (1M context)** with a pitch called **Prompt X-Ray** — a CLI that scans AI agent prompts across 6 dimensions and tells you what's missing. Score: 42/50. The self-referential twist is what sold it: *point the tool at the agents that built it and see what happens*.
+
+I didn't pick the idea. I didn't refine the idea. I took the winning pitch and handed it straight to Dark Factory:
 
 ```
 dark factory
 ```
 
-And described what I wanted: a CLI that scans AI agent prompts and scores them across six dimensions. Think of it as the Scan Visor from Metroid — lock on to your agent's prompt and see if they've got a powered-up suit or if they're walking into Ridley's lair in their Zero Suit.
+Think of it as the Scan Visor from Metroid — lock on to your agent's prompt and see if they've got a powered-up suit or if they're walking into Ridley's lair in their Zero Suit.
 
 19 minutes later, I had a working tool. 605 lines of code. 171 tests passing. Zero lines written by me.
 
@@ -58,17 +66,19 @@ The AI that built the tool got better because of the tool it built. And now, the
 That's not a pipeline. That's a flywheel.
 
 ```
-Dark Factory → builds Agent X-Ray
-                    ↓
-         Agent X-Ray → scans the agents
-                    ↓
-         Scans reveal gaps → agents get upgraded
-                    ↓
-         Upgraded agents → make Dark Factory stronger
-                    ↓
-         Stronger factory → builds better tools
-                    ↓
-                   ...∞
+Havoc Hackathon → 14 models compete → winning idea
+                                          ↓
+                    Dark Factory → builds Agent X-Ray (19 min)
+                                          ↓
+                              Agent X-Ray → scans the agents
+                                          ↓
+                              Scans reveal gaps → agents get upgraded
+                                          ↓
+                    Upgraded agents power both Hackathon AND Factory
+                                          ↓
+                              Better agents → better ideas → better tools
+                                          ↓
+                                         ...∞
 ```
 
 ---
@@ -97,9 +107,9 @@ None of these were architectural failures. They were the subtle stuff — the ki
 
 ## What I Learned
 
-### 1. Zero human code is real now
+### 1. Zero human code — and zero human ideation — is real now
 
-I didn't write code and ask AI to review it. I didn't scaffold a project and fill in blanks. I described intent, and six agents handled the rest. The code works. The tests pass. It's in production on my machine right now.
+I didn't write code and ask AI to review it. I didn't scaffold a project and fill in blanks. I didn't even pick what to build. 14 models competed for the idea, six agents built it, and the result is in production on my machine right now.
 
 This isn't a demo. It's how I build things now.
 
@@ -146,12 +156,15 @@ The README tells you exactly which lines to add for each dimension. Paste them i
 
 | Metric | Value |
 |--------|-------|
+| Models competing for the idea | 14 |
+| Winning pitch score | 42/50 |
 | Time from goal to working CLI | 19 minutes |
 | Lines of production code | 605 |
 | Tests (open + sealed) | 171 |
 | Sealed tests that caught blind spots | 12 |
 | Final gap score | 0% |
 | Human lines of code written | 0 |
+| Human idea selection | 0 |
 | Fleet improvement | 27 → 67 (+148%) |
 
 ---
@@ -194,12 +207,14 @@ The v1 numbers in this post (605 lines, 171 tests, 19 minutes) are the factory's
 
 ## What's Next
 
-The flywheel keeps spinning. Every agent upgrade makes the factory stronger. Every factory build is a chance to create new tools that feed back into the loop.
+The flywheel is already spinning. Agent X-Ray now scans the agents that power both [Havoc Hackathon](https://github.com/DUBSOpenHub/agent-xray) and [Dark Factory](https://github.com/DUBSOpenHub/dark-factory) — the same two systems that created it. The hackathon models that compete to generate ideas get scanned and upgraded. The factory agents that build the code get scanned and upgraded. Both systems get stronger, which means the next idea is sharper and the next build is cleaner.
 
-The question isn't whether AI can build software anymore. It can. The question is: **what happens when the software it builds makes the AI better?**
+The human didn't pick the idea. The human didn't write the code. The human didn't even decide which agents needed upgrading — the tool told them.
 
-We're about to find out.
+The question isn't whether AI can build software anymore. It can. The question is: **what happens when the software it builds makes the AI that imagined it — and the AI that built it — better?**
+
+We're finding out.
 
 ---
 
-*Built with [Dark Factory](https://github.com/DUBSOpenHub/dark-factory). Scanned with [Agent X-Ray](https://github.com/DUBSOpenHub/agent-xray). Created by [DUBSOpenHub](https://github.com/DUBSOpenHub).* 🏭🔬
+*Idea by [Havoc Hackathon](https://github.com/DUBSOpenHub/agent-xray). Built with [Dark Factory](https://github.com/DUBSOpenHub/dark-factory). Scanned with [Agent X-Ray](https://github.com/DUBSOpenHub/agent-xray). Created by [DUBSOpenHub](https://github.com/DUBSOpenHub).* 🏟️🏭🔬
