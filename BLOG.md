@@ -1,14 +1,14 @@
-# I Told AI to Build a Tool. Then I Used That Tool to Improve the AI That Built It.
+# I Let AI Build a Tool. Then I Used That Tool to Improve the AI That Built It.
 
-*How a 19-minute autonomous build created a self-improving loop, and what it means for how we build software now.*
+*How a 19-minute autonomous build turned into a self-improving loop, and what I learned along the way.*
 
 ---
 
 ## The Experiment
 
-I wanted to know: could AI build a useful tool from scratch, spec to ship, without me writing a single line of code?
+I was curious: could AI build a useful tool from scratch, spec to ship, without me writing a single line of code?
 
-Not "help me write some functions." Not "autocomplete my code." I mean: AI picks the idea, AI builds it, and I watch.
+Not "help me write some functions." Not "autocomplete my code." I wanted to see what would happen if AI picks the idea, AI builds it, and I just watch.
 
 So I started by not even choosing what to build.
 
@@ -32,9 +32,9 @@ But that's not the interesting part.
 
 ---
 
-## The Interesting Part
+## What Surprised Me
 
-The tool I built, [Agent X-Ray](https://github.com/DUBSOpenHub/agent-xray), scans AI agent prompts and tells you what's missing. It checks six things:
+The tool the factory built, [Agent X-Ray](https://github.com/DUBSOpenHub/agent-xray), scans AI agent prompts and tells you what's missing. It checks six things:
 
 - 💥 Does the agent know what it is? (**Role Clarity**)
 - 🛡️ Does it have rules? (**Constraint Density**)
@@ -47,7 +47,7 @@ So naturally, I pointed it at the AI agents that built it.
 
 Their average score? **27 out of 100.**
 
-The tools I trusted to build software autonomously were dropping into hostile territory with no suit upgrades. Half their systems were offline. They worked, but only because they got lucky.
+The tools I'd been trusting to build software autonomously were dropping into hostile territory with no suit upgrades. Half their systems were offline. They worked, but I suspect partly because they got lucky.
 
 ---
 
@@ -61,9 +61,9 @@ I upgraded all 12 agents. Ran the scan again.
 
 **27 → 67.**
 
-The AI that built the tool got better because of the tool it built. And now, the next time I run Dark Factory, it starts from a stronger foundation. The next tool it builds will be better too.
+The AI that built the tool got better because of the tool it built. In theory, the next time I run Dark Factory, it starts from a stronger foundation. The next tool it builds should be better too.
 
-That's not a pipeline. That's a flywheel.
+I didn't plan for that. It just fell out of the experiment.
 
 ```
 Havoc Hackathon → 14 models compete → winning idea
@@ -94,7 +94,7 @@ Havoc Hackathon → 14 models compete → winning idea
 5. **QA Validator** — opens the sealed envelope and runs *all* tests against the code
 6. **Hardening Loop** — fixes failures without ever seeing the test source code
 
-The sealed-envelope part is the key innovation. In most AI coding workflows, the same system writes the code and the tests, so they share the same blind spots. Dark Factory separates them with a hash lock.
+The sealed-envelope part is the most interesting design choice. In most AI coding workflows, the same system writes the code and the tests, so they share the same blind spots. Dark Factory separates them with a hash lock.
 
 In this build, the sealed tests caught **12 issues** the engineer's own tests missed:
 - A command-line parsing bug with `--fleet --json`
@@ -107,25 +107,25 @@ None of these were architectural failures. They were the subtle stuff, the kind 
 
 ## What I Learned
 
-### 1. Zero human code, zero human ideation
+### 1. This is further along than I expected
 
-I didn't write code and ask AI to review it. I didn't scaffold a project and fill in blanks. I didn't even pick what to build. 14 models competed for the idea, six agents built it, and the result is in production on my machine right now.
+I didn't write code and ask AI to review it. I didn't scaffold a project and fill in blanks. I didn't even pick what to build. 14 models competed for the idea, six agents built it, and the result actually works. It's in production on my machine right now.
 
-This isn't a demo. It's how I build things now.
+I started this to see what was possible. Turns out it's further along than I thought.
 
-### 2. Testing AI with AI requires separation
+### 2. Testing AI with AI only works if you separate them
 
 The sealed-envelope pattern matters more than any other architectural choice in the factory. Without it, you get AI that writes code and then writes tests that confirm the code works. Circular validation. With it, you get genuine adversarial coverage.
 
-### 3. The recursive loop is the real product
+### 3. The recursive loop was an accident
 
-Agent X-Ray is useful on its own. But the fact that it improves the system that created it? That's the breakthrough. Every tool the factory builds can potentially feed back into making the factory better.
+Agent X-Ray is useful on its own. But I didn't set out to build a self-improving loop. It just turned out that the obvious next step after building a prompt scanner was to scan your own prompts. And once you do that, things start feeding back into each other. That was the most fun part of the whole experiment.
 
 ### 4. Most AI agents are under-equipped
 
-When I scanned my 12 agents, the average was 27/100. These are agents I use daily. They function fine most of the time, but they're missing suit upgrades, energy tanks, and escape routes. They're dropping into Ridley's lair with half an energy tank and no Varia Suit. They survive. Until they don't.
+When I scanned my 12 agents, the average was 27/100. These are agents I use daily. They function fine most of the time, but they're missing suit upgrades, energy tanks, and escape routes. I had no idea how many gaps were hiding in plain sight.
 
-If you're running AI agents, scan them. You'll be surprised how many empty upgrade slots they have.
+If you're running AI agents, try scanning them. I was surprised.
 
 ---
 
@@ -207,13 +207,13 @@ The v1 numbers in this post (605 lines, 171 tests, 19 minutes) are the factory's
 
 ## What's Next
 
-The flywheel is already spinning. Agent X-Ray now scans the agents that power both [Havoc Hackathon](https://github.com/DUBSOpenHub/agent-xray) and [Dark Factory](https://github.com/DUBSOpenHub/dark-factory). The same two systems that created it. The hackathon models that compete to generate ideas get scanned and upgraded. The factory agents that build the code get scanned and upgraded. Both systems get stronger, which means the next idea is sharper and the next build is cleaner.
+I'm still exploring. Agent X-Ray now scans the agents that power both [Havoc Hackathon](https://github.com/DUBSOpenHub/agent-xray) and [Dark Factory](https://github.com/DUBSOpenHub/dark-factory), the same two systems that created it. The hackathon models get scanned and upgraded. The factory agents get scanned and upgraded. Both systems get a little stronger each time.
 
-The human didn't pick the idea. The human didn't write the code. The human didn't even decide which agents needed upgrading. The tool told them.
+I didn't set out to build a closed loop. I just kept following the curiosity: what if I scan *these* agents? What if I upgrade *those*? Each step taught me something new about how these systems actually work under the hood.
 
-The question isn't whether AI can build software anymore. It can. The question is: **what happens when the software it builds makes the AI that imagined it, and the AI that built it, better?**
+The question I started with was whether AI could build a useful tool on its own. It can. The question I'm sitting with now is: **what happens when you keep pulling on that thread?**
 
-We're finding out.
+I'm still finding out.
 
 ---
 
