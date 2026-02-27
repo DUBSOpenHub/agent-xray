@@ -29,7 +29,7 @@ node agent-xray.js my-agent.md
 
 > ⚡ **Get started fast!** Clone and run in one line:
 > ```bash
-> git clone https://github.com/DUBSOpenHub/agent-armor.git && cd agent-armor && node agent-armor.js my-agent.md
+> git clone https://github.com/DUBSOpenHub/agent-xray.git && cd agent-xray && node agent-xray.js my-agent.md
 > ```
 
 ## Why This Tool?

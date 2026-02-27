@@ -156,6 +156,42 @@ The README tells you exactly which lines to add for each dimension. Paste them i
 
 ---
 
+## What's Changed Since v1
+
+The factory built v1. Then I kept building on top of it. Three additions that changed how the tool works:
+
+### 🎯 Anti-Gaming (Keyword Density Ratio)
+
+Someone could have written `"never never never never never"` and scored 100 on Constraint Density. That's not a well-constrained agent — that's a keyword-stuffed prompt with nothing real behind it.
+
+v1.1 added a density ratio: keywords in thin sentences (under 10 words) get penalized. A sentence like *"Never."* scores 0.3x. A sentence like *"Never perform destructive operations without explicit user confirmation."* scores full credit. A gaming prompt that scored 98 under v1 now scores 1.
+
+The Scan Visor got smarter. It doesn't just detect keywords — it checks if they're doing real work.
+
+### 🔧 Scoring Profiles (`--profile`)
+
+Not every agent needs the same suit. A security-focused agent needs stronger Hallucination Guardrails (2x weight) and Constraint Density (1.5x). A creative writing agent needs Role Clarity (1.5x) but can relax constraints (0.5x). A CI pipeline gate needs Testability cranked to 2x.
+
+Five built-in profiles: `balanced`, `security`, `creative`, `ci-gate`, `assistant`. Same scan, different lens.
+
+```bash
+node agent-xray.js my-agent.md --profile security
+```
+
+### 🔬 Strict Mode (`--strict`)
+
+The base scan is deterministic pattern matching — fast, repeatable, no API key needed. But patterns can only tell you *if* a keyword is there, not *if it's any good*.
+
+Strict mode sends matched excerpts to an OpenAI-compatible LLM for semantic evaluation. It asks: is this hallucination guardrail actually effective, or is it vague hand-waving? Requires `OPENAI_API_KEY`, graceful fallback without it.
+
+```bash
+node agent-xray.js my-agent.md --strict
+```
+
+The v1 numbers in this post (605 lines, 171 tests, 19 minutes) are the factory's output. The tool has grown since then — but the foundation the factory laid is still the core.
+
+---
+
 ## What's Next
 
 The flywheel keeps spinning. Every agent upgrade makes the factory stronger. Every factory build is a chance to create new tools that feed back into the loop.
