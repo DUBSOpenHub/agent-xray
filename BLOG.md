@@ -115,7 +115,7 @@ I started this to see what was possible. Turns out it's further along than I tho
 
 ### 2. Testing AI with AI only works if you separate them
 
-The sealed-envelope pattern matters more than any other architectural choice in the factory. Without it, you get AI that writes code and then writes tests that confirm the code works. Circular validation. With it, you get genuine adversarial coverage.
+The [sealed-envelope pattern](https://github.com/DUBSOpenHub/shadow-score-spec) matters more than any other architectural choice in the factory. Without it, you get AI that writes code and then writes tests that confirm the code works. Circular validation. With it, you get genuine adversarial coverage.
 
 ### 3. The recursive loop was an accident
 

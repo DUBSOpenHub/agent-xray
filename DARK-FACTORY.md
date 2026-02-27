@@ -1,6 +1,6 @@
 # 🏭 Dark Factory Build Log
 
-**Agent X-Ray v1.0** was built entirely by the [Dark Factory](https://github.com/DUBSOpenHub/dark-factory) — an autonomous AI build system that orchestrates 6 specialist agents through a checkpoint-gated pipeline with sealed-envelope testing.
+**Agent X-Ray v1.0** was built entirely by the [Dark Factory](https://github.com/DUBSOpenHub/dark-factory) — an autonomous AI build system that orchestrates 6 specialist agents through a checkpoint-gated pipeline with [sealed-envelope testing](https://github.com/DUBSOpenHub/shadow-score-spec).
 
 No human wrote the initial code. A human described the goal. The factory built v1.
 
@@ -68,7 +68,7 @@ Code delivered to working directory. Factory floor cleared.
 
 ---
 
-## What is Sealed-Envelope Testing?
+## What is [Sealed-Envelope Testing](https://github.com/DUBSOpenHub/shadow-score-spec)?
 
 The QA agent writes tests *before* the engineer builds anything. Those tests are hashed and locked — the engineer never sees them. After implementation, the seal is broken and the tests run against the code.
 
