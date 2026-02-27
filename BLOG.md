@@ -94,7 +94,7 @@ Havoc Hackathon → 14 models compete → winning idea
 5. **QA Validator** — opens the sealed envelope and runs *all* tests against the code
 6. **Hardening Loop** — fixes failures without ever seeing the test source code
 
-The sealed-envelope part is the most interesting design choice. In most AI coding workflows, the same system writes the code and the tests, so they share the same blind spots. Dark Factory separates them with a hash lock.
+The sealed-envelope part is the most interesting design choice. In most AI coding workflows, the same system writes the code and the tests, so they share the same blind spots. Dark Factory separates them with a hash lock. (The concept is formalized as the [Shadow Score](https://github.com/DUBSOpenHub/shadow-score-spec).)
 
 In this build, the sealed tests caught **12 issues** the engineer's own tests missed:
 - A command-line parsing bug with `--fleet --json`
