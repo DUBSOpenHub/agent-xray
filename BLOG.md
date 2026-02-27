@@ -1,4 +1,4 @@
-# I Let AI Build a Tool. Then I Used That Tool to Improve the AI That Built It.
+# I Didn't Pick the Idea. I Didn't Write the Code. Here's What I Learned.
 
 *How a 19-minute autonomous build turned into a self-improving loop, and what I learned along the way.*
 
