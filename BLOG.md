@@ -47,7 +47,7 @@ So naturally, I pointed it at the AI agents that built it.
 
 Their average score? **27 out of 100.**
 
-The tools I'd been trusting to build software autonomously were dropping into hostile territory with no suit upgrades. Half their systems were offline. They worked, but I suspect partly because they got lucky.
+The tools I'd been using to build software autonomously were dropping into hostile territory with no suit upgrades. Half their systems were offline. They worked, but I suspect partly because they got lucky.
 
 ---
 
