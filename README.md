@@ -4,6 +4,8 @@
 
 Agent X-Ray scans your AI agent's prompt and reveals exactly which suit upgrades they're missing — before they get wrecked by Space Pirates.
 
+📝 **[Read the blog post →](BLOG.md)** *"I Didn't Pick the Idea. I Didn't Write the Code. Here's What I Learned."* — How 14 AI models competed to pick the idea, Dark Factory built it in 19 minutes, and then the tool scanned the agents that created it. The recursive loop that followed was an accident.
+
 🌍 **Works in any terminal.** Scans any `.md` agent prompt — Copilot, ChatGPT, Claude, LangChain, CrewAI, or your own custom agents. Zero dependencies. Just Node.js.
 
 🏭 **v1.0 built with [Dark Factory](https://github.com/DUBSOpenHub/dark-factory)** — 6 AI agents, [sealed-envelope testing](https://github.com/DUBSOpenHub/shadow-score-spec), 0% gap score. [Read the build log →](DARK-FACTORY.md)
