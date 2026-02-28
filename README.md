@@ -4,7 +4,7 @@
 
 Agent X-Ray scans your AI agent's prompt and reveals exactly which suit upgrades they're missing — before they get wrecked by Space Pirates.
 
-📝 **[Read the blog post →](BLOG.md)** *"I Didn't Pick the Idea. I Didn't Write the Code. Here's What I Learned."* — How 14 AI models competed to pick the idea, Dark Factory built it in 19 minutes, and then the tool scanned the agents that created it. The recursive loop that followed was an accident.
+📝 **[Read the blog post →](BLOG.md)** *"I Didn't Pick the Idea. I Didn't Write the Code. Here's What I Learned."* — More about Agent X-Ray and how it was built: 14 AI models competing for the idea, Dark Factory assembling it in 19 minutes, and the accidental recursive loop that followed.
 
 🌍 **Works in any terminal.** Scans any `.md` agent prompt — Copilot, ChatGPT, Claude, LangChain, CrewAI, or your own custom agents. Zero dependencies. Just Node.js.
 
