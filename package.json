@@ -1,0 +1,10 @@
+{
+  "name": "agent-xray",
+  "version": "1.0.0",
+  "description": "Scan your AI agent's prompt. See what's missing.",
+  "main": "agent-xray.js",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "license": "MIT"
+}

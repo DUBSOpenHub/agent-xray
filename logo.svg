@@ -1,0 +1,227 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Fire gradients -->
+    <linearGradient id="fireCore" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#fbbf24"/>
+      <stop offset="40%" style="stop-color:#f97316"/>
+      <stop offset="75%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
+    </linearGradient>
+    <linearGradient id="fireHot" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#fef3c7"/>
+      <stop offset="30%" style="stop-color:#fbbf24"/>
+      <stop offset="70%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <linearGradient id="fireEmber" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#fcd34d"/>
+      <stop offset="50%" style="stop-color:#ea580c"/>
+      <stop offset="100%" style="stop-color:#7f1d1d"/>
+    </linearGradient>
+    <!-- Shield gradient - dark bronze -->
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#78350f"/>
+      <stop offset="50%" style="stop-color:#451a03"/>
+      <stop offset="100%" style="stop-color:#1c0a00"/>
+    </linearGradient>
+    <!-- Bronze/gold metal -->
+    <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d97706"/>
+      <stop offset="30%" style="stop-color:#b45309"/>
+      <stop offset="70%" style="stop-color:#92400e"/>
+      <stop offset="100%" style="stop-color:#78350f"/>
+    </linearGradient>
+    <!-- Stone gradient for colosseum -->
+    <linearGradient id="stoneGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#78716c"/>
+      <stop offset="50%" style="stop-color:#57534e"/>
+      <stop offset="100%" style="stop-color:#44403c"/>
+    </linearGradient>
+    <linearGradient id="stoneDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#57534e"/>
+      <stop offset="100%" style="stop-color:#292524"/>
+    </linearGradient>
+    <!-- Arena sand -->
+    <linearGradient id="sandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d6d3d1"/>
+      <stop offset="100%" style="stop-color:#a8a29e"/>
+    </linearGradient>
+    <!-- Fire glow filter -->
+    <filter id="fireGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#f97316" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Strong outer glow -->
+    <filter id="outerGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur"/>
+      <feFlood flood-color="#ea580c" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Ember particle glow -->
+    <filter id="emberGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+    </filter>
+    <!-- Heart glow -->
+    <linearGradient id="heartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ade80"/>
+      <stop offset="100%" style="stop-color:#22c55e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- === COLOSSEUM BACKGROUND === -->
+  <!-- Dark sky/arena background -->
+  <rect x="0" y="0" width="512" height="512" rx="40" fill="#1c1917" opacity="0"/>
+
+  <!-- Colosseum arches - back row (smaller, farther) -->
+  <g opacity="0.25" fill="none" stroke="#78716c" stroke-width="2">
+    <path d="M56 200 Q56 160 86 160 Q116 160 116 200"/>
+    <path d="M116 200 Q116 160 146 160 Q176 160 176 200"/>
+    <path d="M336 200 Q336 160 366 160 Q396 160 396 200"/>
+    <path d="M396 200 Q396 160 426 160 Q456 160 456 200"/>
+  </g>
+
+  <!-- Colosseum arches - front row (left side) -->
+  <g opacity="0.4" fill="url(#stoneDark)" stroke="url(#stoneGrad)" stroke-width="2.5">
+    <!-- Left pillar arches -->
+    <path d="M28 280 L28 180 Q28 140 58 140 Q88 140 88 180 L88 280 Z"/>
+    <path d="M88 280 L88 180 Q88 140 118 140 Q148 140 148 180 L148 280 Z"/>
+    <!-- Right pillar arches -->
+    <path d="M364 280 L364 180 Q364 140 394 140 Q424 140 424 180 L424 280 Z"/>
+    <path d="M424 280 L424 180 Q424 140 454 140 Q484 140 484 180 L484 280 Z"/>
+  </g>
+
+  <!-- Colosseum arch tops - decorative row above -->
+  <g opacity="0.2" fill="none" stroke="#a8a29e" stroke-width="1.5">
+    <path d="M20 140 Q20 110 50 110 Q80 110 80 140"/>
+    <path d="M80 140 Q80 110 110 110 Q140 110 140 140"/>
+    <path d="M372 140 Q372 110 402 110 Q432 110 432 140"/>
+    <path d="M432 140 Q432 110 462 110 Q492 110 492 140"/>
+  </g>
+
+  <!-- Colosseum horizontal ledges -->
+  <rect x="16" y="136" width="140" height="6" rx="1" fill="url(#stoneGrad)" opacity="0.35"/>
+  <rect x="356" y="136" width="140" height="6" rx="1" fill="url(#stoneGrad)" opacity="0.35"/>
+  <rect x="16" y="276" width="140" height="6" rx="1" fill="url(#stoneGrad)" opacity="0.4"/>
+  <rect x="356" y="276" width="140" height="6" rx="1" fill="url(#stoneGrad)" opacity="0.4"/>
+
+  <!-- Arena floor ellipse -->
+  <ellipse cx="256" cy="420" rx="220" ry="40" fill="url(#sandGrad)" opacity="0.15"/>
+
+  <!-- === FIRE — BEHIND THE SHIELD === -->
+  <!-- Large background flames -->
+  <g filter="url(#fireGlow)" opacity="0.85">
+    <!-- Center massive flame -->
+    <path d="M256 80 Q280 140 270 200 Q310 160 290 100 Q320 170 300 230
+             Q340 180 310 120 Q350 200 320 270 L256 300 L192 270
+             Q180 200 162 120 Q172 180 210 230 Q190 170 202 100
+             Q230 160 242 200 Q232 140 256 80Z"
+          fill="url(#fireCore)"/>
+    <!-- Left flame tongue -->
+    <path d="M180 300 Q160 220 140 170 Q155 230 170 200 Q158 260 175 290Z"
+          fill="url(#fireEmber)" opacity="0.7"/>
+    <!-- Right flame tongue -->
+    <path d="M332 300 Q352 220 372 170 Q357 230 342 200 Q354 260 337 290Z"
+          fill="url(#fireEmber)" opacity="0.7"/>
+  </g>
+
+  <!-- Inner hot flames (brighter, smaller) -->
+  <g filter="url(#fireGlow)" opacity="0.6">
+    <path d="M256 130 Q272 170 265 210 Q290 180 280 150 Q300 190 285 240
+             L256 260 L227 240 Q212 190 232 150 Q222 180 247 210 Q240 170 256 130Z"
+          fill="url(#fireHot)"/>
+  </g>
+
+  <!-- === SHIELD — CENTER === -->
+  <g filter="url(#outerGlow)">
+    <!-- Shield outer border (bronze) -->
+    <path d="M256 145 L390 205 L390 310 Q390 400 256 462 Q122 400 122 310 L122 205 Z"
+          fill="url(#bronzeGrad)"/>
+    <!-- Shield main face (dark) -->
+    <path d="M256 157 L380 213 L380 306 Q380 392 256 450 Q132 392 132 306 L132 213 Z"
+          fill="url(#shieldGrad)"/>
+    <!-- Shield bevel highlight -->
+    <path d="M256 170 L370 222 L370 300 Q370 380 256 436 Q142 380 142 300 L142 222 Z"
+          fill="#92400e" opacity="0.15"/>
+  </g>
+
+  <!-- Shield decorative rivets -->
+  <g fill="#d97706" opacity="0.6">
+    <circle cx="175" cy="225" r="4"/>
+    <circle cx="337" cy="225" r="4"/>
+    <circle cx="150" cy="290" r="4"/>
+    <circle cx="362" cy="290" r="4"/>
+    <circle cx="160" cy="360" r="3.5"/>
+    <circle cx="352" cy="360" r="3.5"/>
+  </g>
+
+  <!-- Shield center cross / emblem -->
+  <g stroke="#b45309" stroke-width="2" fill="none" opacity="0.5">
+    <!-- Vertical line -->
+    <line x1="256" y1="185" x2="256" y2="430"/>
+    <!-- Horizontal line -->
+    <line x1="148" y1="290" x2="364" y2="290"/>
+  </g>
+
+  <!-- === GLADIATOR "A" EMBLEM (center of shield) === -->
+  <g transform="translate(256, 295)">
+    <!-- Stylized "A" — like a gladiator helmet visor -->
+    <path d="M0 -55 L-38 45 L-24 45 L-16 20 L16 20 L24 45 L38 45 Z"
+          fill="none" stroke="url(#fireHot)" stroke-width="4" stroke-linejoin="round"/>
+    <!-- Crossbar of A -->
+    <line x1="-20" y1="8" x2="20" y2="8" stroke="#fbbf24" stroke-width="3.5"/>
+    <!-- Inner fire glow on A -->
+    <path d="M0 -42 L-28 38 L-18 38 L-12 18 L12 18 L18 38 L28 38 Z"
+          fill="url(#fireCore)" opacity="0.3"/>
+    <!-- Node dots (circuit meets gladiator) -->
+    <circle cx="0" cy="-55" r="4" fill="#fbbf24"/>
+    <circle cx="-38" cy="45" r="3.5" fill="#f97316"/>
+    <circle cx="38" cy="45" r="3.5" fill="#f97316"/>
+  </g>
+
+  <!-- Three green hearts on shield -->
+  <g transform="translate(222, 382)">
+    <path d="M8 3 C8 -1, 14 -3, 14 3 C14 8, 8 13, 8 13 C8 13, 2 8, 2 3 C2 -3, 8 -1, 8 3Z"
+          fill="url(#heartGrad)" stroke="#166534" stroke-width="0.8"/>
+  </g>
+  <g transform="translate(248, 378)">
+    <path d="M8 3 C8 -1, 14 -3, 14 3 C14 8, 8 13, 8 13 C8 13, 2 8, 2 3 C2 -3, 8 -1, 8 3Z"
+          fill="url(#heartGrad)" stroke="#166534" stroke-width="1"/>
+  </g>
+  <g transform="translate(274, 382)">
+    <path d="M8 3 C8 -1, 14 -3, 14 3 C14 8, 8 13, 8 13 C8 13, 2 8, 2 3 C2 -3, 8 -1, 8 3Z"
+          fill="url(#heartGrad)" stroke="#166534" stroke-width="0.8"/>
+  </g>
+
+  <!-- === FLOATING EMBER PARTICLES === -->
+  <g opacity="0.8">
+    <circle cx="130" cy="120" r="2.5" fill="#fbbf24"/>
+    <circle cx="130" cy="120" r="2.5" fill="#fbbf24" filter="url(#emberGlow)" opacity="0.5"/>
+    <circle cx="382" cy="105" r="2" fill="#f97316"/>
+    <circle cx="382" cy="105" r="2" fill="#f97316" filter="url(#emberGlow)" opacity="0.5"/>
+    <circle cx="200" cy="70" r="1.8" fill="#fcd34d"/>
+    <circle cx="200" cy="70" r="1.8" fill="#fcd34d" filter="url(#emberGlow)" opacity="0.4"/>
+    <circle cx="310" cy="55" r="2.2" fill="#fb923c"/>
+    <circle cx="310" cy="55" r="2.2" fill="#fb923c" filter="url(#emberGlow)" opacity="0.5"/>
+    <circle cx="170" cy="100" r="1.5" fill="#fde68a"/>
+    <circle cx="170" cy="100" r="1.5" fill="#fde68a" filter="url(#emberGlow)" opacity="0.4"/>
+    <circle cx="345" cy="80" r="1.8" fill="#fdba74"/>
+    <circle cx="345" cy="80" r="1.8" fill="#fdba74" filter="url(#emberGlow)" opacity="0.4"/>
+    <circle cx="105" cy="160" r="1.3" fill="#fbbf24"/>
+    <circle cx="410" cy="150" r="1.5" fill="#f97316"/>
+    <circle cx="230" cy="42" r="1.6" fill="#fcd34d"/>
+    <circle cx="280" cy="38" r="1.4" fill="#fb923c"/>
+  </g>
+
+  <!-- === FIRE REFLECTIONS ON FLOOR === -->
+  <ellipse cx="256" cy="470" rx="120" ry="12" fill="#f97316" opacity="0.08"/>
+  <ellipse cx="256" cy="470" rx="80" ry="8" fill="#fbbf24" opacity="0.06"/>
+</svg>
