@@ -229,6 +229,6 @@ MIT
 
 ## 🐙 Built with Love
 
-Created with 💜 by [DUBSOpenHub](https://github.com/DUBSOpenHub) to help more people discover the joy of GitHub Copilot CLI.
+🐙 Built with Love
 
 Let's build! 🚀✨
