@@ -227,8 +227,6 @@ MIT
 
 ---
 
-## 🐙 Built with Love
-
-Created with 💜 by @DUBSOpenHub with the GitHub Copilot CLI.
+## 🐙 Created with 💜 by [@DUBSOpenHub](https://github.com/DUBSOpenHub) with the [GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli).
 
 Let's build! 🚀✨
